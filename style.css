@@ -1,0 +1,295 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@400;500&display=swap');
+
+@font-face {
+    font-family:"Cartoon";
+    src:
+        url("./assets/Cartoon_Tunes_Flat/Cartoon_Tunes_Flat.eot") format("eot"),
+        url("./assets/Cartoon_Tunes_Flat/Cartoon_Tunes_Flat.woff") format("woff"),
+        url("./assets/Cartoon_Tunes_Flat/Cartoon_Tunes_Flat.ttf") format("truetype"),
+        url("./assets/Cartoon_Tunes_Flat/Cartoon_Tunes_Flat.svg") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+
+
+
+/* colors */
+:root{
+--charcoal: rgba(38, 70, 83, 1);
+--persian-green: rgba(42, 157, 143, 1);
+--orange-yellow-crayola: rgba(233, 196, 106, 1);
+--sandy-brown: rgba(244, 162, 97, 1);
+--sandy-brown-shade: rgb(214, 135, 70);
+--burnt-sienna: rgba(231, 111, 81, 1);
+}
+
+/* resets */
+
+*{
+    margin: 0;
+    padding: 1%;
+}
+
+body{
+    background-color: var(--charcoal);
+    color: var(--orange-yellow-crayola);
+}
+
+h1{
+    font-family: "Cartoon", sans-serif;
+    font-size: 2.3em;
+}
+
+p, li, button{
+    
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* header/navbar */
+
+header{
+    display: flex;
+    align-content: space-between;
+    background-color: var(--persian-green);
+    padding: 8%;
+    margin: -2%;
+}
+
+header a{
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 2em;
+}
+
+.menu{
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+}
+
+.dropdown{
+    display: none;
+    position: absolute;
+    background-color: var(--charcoal);
+    min-width: 160px;
+    padding: 12px 16px;
+    z-index: 5;
+    top:35px;
+    right: -30px;
+}
+
+.dropdown li{
+    list-style: none;
+}
+
+
+/* nav oculta */
+.inlineList{
+    display: none;
+}
+
+.menu:hover .dropdown{
+    display: block;
+}
+
+/* cuerpo */
+
+.description{
+    margin-top: 5%;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    text-align: center;
+    margin: auto;
+}
+
+main img{
+    height: 150px;
+}
+
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5% 0;
+    border: 2px solid var(--orange-yellow-crayola);
+    padding: 3%;
+    background-color: var(--persian-green);
+    border-radius: 10% 10%;
+    box-shadow: 4px 4px 6px 1px var(--persian-green);
+
+}
+
+
+.imgContainer, .newArrivalContainer{
+    position: relative;
+}
+
+.newArrivalContainer{
+    z-index:10 ;
+}
+
+.newArrivalContainer .sticker{
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    background: url(./assets/sticker.png) no-repeat;
+    background-size: 75px;
+    filter: hue-rotate(205deg);
+    top: -35px;
+    right: -160px;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin{
+    100%{
+        transform: rotate(1turn);
+    }
+}
+
+.newArrivalContainer .msg{
+    color: var(--charcoal);
+    text-align: center;
+    font-family:'Quicksand', sans-serif;
+    font-size: 1.5em;
+    width: 75%;
+    position: absolute;
+    margin: -18px 0 0 98.5px;
+}
+
+.imgContainer .Heart{
+    opacity: 50%;
+    position: absolute;
+    top: 6%;
+    right: 9%;
+    font-size: 1.3em;
+    color: var(--burnt-sienna);
+    
+}
+
+.product button,
+.product button:visited{
+    margin: 5% 0;
+    width: 90%;
+    background-color: var(--sandy-brown);
+    border-radius: 28px;
+    border: 1px solid var(--persian-green);
+    cursor: pointer;
+    padding: 6% 15%;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 800;
+}
+
+.product button{
+    animation: outColorHover 1s ease forwards 1;
+}
+
+.product button:hover{
+    /* background-color: var(--sandy-brown-shade); */
+    animation: inColorHover 1s ease forwards 1;
+}
+
+@keyframes inColorHover{
+    from{
+        backgraud-color: rgb(255, 135, 94)
+    }
+
+    to{
+        background-color: var(--sandy-brown-shade);
+    }
+}
+
+.product button a,
+.product button a:visited{
+    text-decoration: none;
+    color: var(--burnt-sienna);
+}
+
+/* media queries */
+
+@media (min-width: 768px){
+    h1{
+        font-size: 5em;
+    }
+
+    i{
+        font-size: 2em;
+    }
+
+    p, li{
+        font-size: 1.5em;
+    }
+
+    .product button{
+        padding: 3% 14%;
+        font-size: 2em;
+    }
+
+    main img{
+        height: 300px;
+    }
+    main img:hover{
+        height: 320px;
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .product {
+        width: 40%;
+        margin: 4% 0;
+    }
+
+    main img {
+        height: 200px;
+    }
+
+    main img:hover {
+        height: 220px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .inlineList {
+        margin-top: 4%;
+        display: block;
+        text-align: center;
+    }
+
+    .inlineList li {
+        display: inline;
+        font-size: 1.5em;
+    }
+}
+
+@media(min-width: 1480px){
+    h1{
+        font-size: 5em;
+    }
+
+    .inline li{
+        font-size: 2.5em;
+    }
+    .product{
+        width: 25%;
+    }
+}
+
+@media(min-width: 1660px){
+    .product{
+        width: 18%;
+    }
+}
